@@ -1,0 +1,7 @@
+{
+  "name": "pandemiapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
