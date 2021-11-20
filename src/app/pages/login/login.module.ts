@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
-import { ErrorMessageComponent } from 'src/app/component/error-message/error-message.component';
+import { ErrorMessageComponent } from 'src/app/components/error-message/error-message.component';
 
 @NgModule({
   imports: [
