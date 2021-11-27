@@ -8,7 +8,7 @@ describe("Login stroe", () => {
     
     it('recoverPassword', () => {
         const initialState: LoginState = AppInitialState.login;
-        const newState = loginReducer(initialState, recoverPassword());
+        const newState = loginReducer(initialState, recoverPassword({email: "any@mail.com"}));
         expect(newState).toEqual({
             ...initialState,
             error: null,

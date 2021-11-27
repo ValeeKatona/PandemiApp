@@ -4,10 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule, ToastController } from '@ionic/angular';
 import { Store, StoreModule } from '@ngrx/store';
-import { Observable, of, throwError } from 'rxjs';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { User } from 'src/app/model/user/User';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { environment } from 'src/environments/environment';
 import { AppState } from 'src/store/AppState';
 import { loadingReducer } from 'src/store/loading/loading.reducers';
@@ -78,7 +76,7 @@ describe('LoginPage', () => {
     spyOn(toastController, 'create').and.returnValue(<any>Promise.resolve({present: () => {}}));
 
     fixture.detectChanges();
-    store.dispatch(recoverPassword());
+    store.dispatch(recoverPassword({email: "any@mail.com"}));
     store.dispatch(recoverPasswordSuccess());
     store.select('loading').subscribe(loadingState => {
       expect(loadingState.show).toBeFalsy();
@@ -90,7 +88,7 @@ describe('LoginPage', () => {
     spyOn(toastController, 'create').and.returnValue(<any>Promise.resolve({present: () => {}}));
 
     fixture.detectChanges();
-    store.dispatch(recoverPassword());
+    store.dispatch(recoverPassword({email: "any@mail.com"}));
     store.dispatch(recoverPasswordFail({error: "message"}));
     store.select('loading').subscribe(loadingState => {
       expect(loadingState.show).toBeFalsy();
@@ -101,7 +99,7 @@ describe('LoginPage', () => {
   it('should show loading and start login when logging in', () => {
     fixture.detectChanges();
     component.form.get('email').setValue('valid@email.com');
-    component.form.get('password').setValue('AnyPassword');
+    component.form.get('password').setValue('anyPassword');
     page.querySelector('#loginButton').click();
      
     store.select('loading').subscribe(loadingState => {
