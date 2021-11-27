@@ -114,7 +114,7 @@ describe('LoginPage', () => {
     spyOn(router, 'navigate');
 
     fixture.detectChanges();
-    store.dispatch(login());
+    store.dispatch(login({email: "valid@email.com", password: "anyPassword"}));
     store.dispatch(loginSuccess({user: new User()}));
 
     store.select('loading').subscribe(loadingState => {
@@ -131,7 +131,7 @@ describe('LoginPage', () => {
 
 
     fixture.detectChanges();
-    store.dispatch(login());
+    store.dispatch(login({email: "valid@email.com", password: "anyPassword"}));
     store.dispatch(loginFail({error: {message: 'error message'}}));
 
     store.select('loading').subscribe(loadingState => {
