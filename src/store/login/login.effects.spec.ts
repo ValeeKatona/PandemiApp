@@ -15,6 +15,7 @@ describe('Login effects', () => {
     let error = {error: 'error'};
     let user = new User();
     user.id = "anyUserId";
+
     let authServiceMock = {
         recoverEmailPassword: (email: string) => {
             if (email == "error@email.com"){
@@ -64,7 +65,7 @@ describe('Login effects', () => {
             })
         })
 
-        it('should recover password with not existing email return an error', done => {
+        it('should login with valid credentials return success', done => {
             actions$ = of(login({email: "valid@email.com", password: "anyPassword"}));
 
             effects.login$.subscribe(newAction => {
@@ -81,4 +82,5 @@ describe('Login effects', () => {
                 done();
             })
         })
+
     })
