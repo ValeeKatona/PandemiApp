@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { RegisterPageModule } from './register.module';
 
 import { RegisterPage } from './register.page';
 
@@ -15,18 +17,23 @@ describe('RegisterPage', () => {
       declarations: [ RegisterPage ],
       imports: [
         IonicModule.forRoot(),
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule,
+        RegisterPageModule
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(RegisterPage);
+    router = TestBed.get(Router);
+    
     component = fixture.componentInstance;
-    fixture.detectChanges();
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create register form on page init', () => {
+    fixture.detectChanges();
+
+    expect(component.registerForm).not.toBeUndefined();
+  })
 
   it('should go to home page on register', () => {
     spyOn(router, 'navigate');
