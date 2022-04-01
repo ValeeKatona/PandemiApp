@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button text=""></ion-back-button>
     </ion-buttons>
-    <ion-title>Pickup Call</ion-title>
+    <ion-title>Beteg felvétele</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,18 +11,18 @@
   <img src="http://s2.glbimg.com/v42PknUjNHer8mislIMigF-w9nY=/695x0/s.glbimg.com/po/tt2/f/original/2015/10/15/capturar3.png">
   <ion-card>
     <ion-card-content>
-      <p>Adress: Fake street, 111</p>
-      <p>Complement: Apto 222</p>
-      <p>Neighborhood: Neighborhood</p>
-      <p>ZIP code: 123456</p>
-      <p>City name - State</p>
+      <p>Cím: Fake street</p>
+      <p>Házszám: 222/A </p>
+      <p>Város: Budapest</p>
+      <p>Irányítószám: 1065</p>
+      <p>Megye: Pest megye</p>
     </ion-card-content>
   </ion-card>
   <ion-list>
     <ion-item lines="inset">
-      <ion-label position="floating">Notes</ion-label>
+      <ion-label position="floating">Megjegyzés:</ion-label>
       <ion-textarea></ion-textarea>
     </ion-item>
   </ion-list>
-  <ion-button size="full" color="success" (click)=newPickupCall()>Create Pickup Call</ion-button>
+  <ion-button size="full" color="success" (click)=newPickupCall()>Hozzáadás az adatbázishoz</ion-button>
 </ion-content>
