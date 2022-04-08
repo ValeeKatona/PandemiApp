@@ -1,0 +1,3 @@
+# PandemiApp
+
+Katona Valentin
